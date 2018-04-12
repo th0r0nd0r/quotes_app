@@ -1,10 +1,11 @@
 <% @quotes.each do |quote| %>
-<% if quote.price != 0.0 %>
-  <li><%= quote.price %></li>
-  <li><%= quote.customer.name %></li>
-  <li><%= quote.customer.adress %></li>
-  <li><%= quote.customer.user_type %></li>
-  <a href="/quotes/<%=quote.id%>">Start Quote</a>
-<% end %>
+  <% if quote.price > 0.0 %>
+    <p>new quote arriving!</p>
+    <li><%= quote.price %></li>
+    <li><%= quote.customer.name %></li>
+    <li><%= quote.customer.adress %></li>
+    <li><%= quote.customer.user_type %></li>
+    <a href="/quotes/<%=quote.id%>">Start Quote</a>
+  <% end %>
 
 <% end %>

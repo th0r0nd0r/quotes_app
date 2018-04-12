@@ -12,6 +12,18 @@ class QuotesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @quote = Quote.includes(:customer).find(params[:id])
+    if @quote.update(quote_params)
+      render :show
+    else
+      render @quote.errors.full_messages
+    end
+  end
+
   def index
     @quotes = Quote.all
 
