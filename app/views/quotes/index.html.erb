@@ -1,5 +1,6 @@
 <% @quotes.each do |quote| %>
-  <% if quote.price > 0.0 %>
+<%# originally had (if quote.price == 0) to only show new quotes %>
+  <% if quote.price %>
     <p>new quote arriving!</p>
     <li><%= quote.price %></li>
     <li><%= quote.customer.name %></li>
